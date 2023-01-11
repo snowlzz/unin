@@ -18,7 +18,14 @@ class ProfilePageState extends State<ProfilePage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          const Center(
+            child: Text('HOMEPAGE'),
+          ),
+          ElevatedButton(onPressed: (){
+            Modular.to.pushNamed('/edit');
+          }, child: Text("EDITAR PERFIL"))
+        ],
       ),
     );
   }

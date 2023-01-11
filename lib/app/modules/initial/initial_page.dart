@@ -18,7 +18,15 @@ class InitialPageState extends State<InitialPage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children:  <Widget>[
+          const Center(child: Text("PAGINA INICIAL")),
+          ElevatedButton(onPressed: (){
+            Modular.to.pushNamed('/home');
+          }, child: Text("HOME")),
+          ElevatedButton(onPressed: (){
+            Modular.to.pushNamed('/auth');
+          }, child: Text("AUTH")),
+        ],
       ),
     );
   }

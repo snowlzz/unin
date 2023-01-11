@@ -18,7 +18,14 @@ class HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          const Center(
+            child: Text('HOMEPAGE'),
+          ),
+          ElevatedButton(onPressed: (){
+            Modular.to.pushNamed('/profile');
+          }, child: Text("PERFIL"))
+        ],
       ),
     );
   }
