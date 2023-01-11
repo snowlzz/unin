@@ -8,6 +8,7 @@ class ProfilePage extends StatefulWidget {
   @override
   ProfilePageState createState() => ProfilePageState();
 }
+
 class ProfilePageState extends State<ProfilePage> {
   final ProfileStore store = Modular.get();
 
@@ -16,15 +17,20 @@ class ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: IconButton(onPressed: () {
+          Modular.to.pop();
+        }, icon: Icon(Icons.arrow_back_ios_rounded)),
       ),
       body: Column(
         children: <Widget>[
           const Center(
             child: Text('HOMEPAGE'),
           ),
-          ElevatedButton(onPressed: (){
-            Modular.to.pushNamed('/edit');
-          }, child: Text("EDITAR PERFIL"))
+          ElevatedButton(
+              onPressed: () {
+                Modular.to.pushNamed('/edit');
+              },
+              child: Text("EDITAR PERFIL"))
         ],
       ),
     );

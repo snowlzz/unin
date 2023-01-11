@@ -16,6 +16,9 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: IconButton(onPressed: () {
+          Modular.to.pop();
+        }, icon: Icon(Icons.arrow_back_ios_rounded)),
       ),
       body: Column(
         children: <Widget>[
