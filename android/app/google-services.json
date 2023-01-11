@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "987374226463",
+    "project_id": "universoteste-59013",
+    "storage_bucket": "universoteste-59013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987374226463:android:de2c472cac3eb6651dd92a",
+        "android_client_info": {
+          "package_name": "com.example.unin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987374226463-os5ciogj9o2baa2b9fn8va586sk861qg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-jYNyEMjNZjuujnFK31R-vfM3Sk_R6n8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987374226463-os5ciogj9o2baa2b9fn8va586sk861qg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
