@@ -1,7 +1,9 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:unin/app/modules/initial/components/input_comp.dart';
+import 'package:unin/app/modules/components/input_comp.dart';
 import 'package:unin/app/modules/initial/initial_store.dart';
 import 'package:flutter/material.dart';
+import 'package:unin/app/modules/models/user_model.dart';
 
 class InitialPage extends StatefulWidget {
   final String title;
@@ -12,6 +14,7 @@ class InitialPage extends StatefulWidget {
 
 class InitialPageState extends State<InitialPage> {
   final InitialStore store = Modular.get();
+  final UserModel user = UserModel();
   TextEditingController? inputController;
 
   @override
@@ -21,6 +24,7 @@ class InitialPageState extends State<InitialPage> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: const Color.fromARGB(255, 255, 193, 143),
+        leading: null,
       ),
       body: Container(
         color: const Color.fromARGB(255, 255, 193, 143),
@@ -29,47 +33,65 @@ class InitialPageState extends State<InitialPage> {
         child: Column(
           children: <Widget>[
             Expanded(
-              child: LayoutBuilder(
-                builder: (_, constraints) {
-                  return SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Center(
-                          child: Image.asset(
-                            "images/LogoMov.gif"
+              child: LayoutBuilder(builder: (_, constraints) {
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Center(
+                        child: Image.asset("images/LogoMov.gif"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: EmailInputField(
+                            inputController: store.controllerEmail),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: PasswordInput(
+                          inputController: store.controllerPass,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Observer(builder: (_) {
+                        return Text(
+                          store.erro,
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        );
+                      }),
+                      SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          store.signIn(UserModel());
+                        },
+                        style: ButtonStyle(
+                          fixedSize:
+                              MaterialStateProperty.all(Size.fromWidth(200)),
+                        ),
+                        child: const Text("Entrar"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Modular.to.pushReplacementNamed('/auth');
+                        },
+                        style: ButtonStyle(
+                            fixedSize:
+                                MaterialStateProperty.all(Size.fromWidth(200))),
+                        child: const Text(
+                          "Primeira vez no universo prematuro?",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: EmailInputField(inputController: inputController),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: EmailInputField(inputController: inputController),
-                        ),
-                        ElevatedButton(
-                          onPressed: (){
-                            Modular.to.pushReplacementNamed("/home");
-                          },
-                          style: ButtonStyle(
-                            fixedSize: MaterialStateProperty.all(Size.fromWidth(200))
-                          ),
-                          child: const Text("Entrar"),
-                        ),
-                        ElevatedButton(
-                          onPressed: (){
-                            Modular.to.pushReplacementNamed('/auth');
-                          },
-                          style: ButtonStyle(
-                            fixedSize: MaterialStateProperty.all(Size.fromWidth(200))
-                          ),
-                          child: const Text("Registro"),
-                        )
-                      ],
-                    ),
-                  );
-                }
-              ),
+                      )
+                    ],
+                  ),
+                );
+              }),
             ),
           ],
         ),
@@ -77,4 +99,3 @@ class InitialPageState extends State<InitialPage> {
     );
   }
 }
-

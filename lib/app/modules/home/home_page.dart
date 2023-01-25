@@ -1,6 +1,7 @@
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:unin/app/modules/home/home_store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import 'home_store.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -17,7 +18,7 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         leading: IconButton(onPressed: () {
-          Modular.to.pop();
+          Modular.to.pushReplacementNamed('/');
         }, icon: Icon(Icons.arrow_back_ios_rounded)),
       ),
       body: Column(

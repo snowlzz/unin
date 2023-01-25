@@ -4,22 +4,7 @@ description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-# CORES UP
 
-## LARANJA MEIO ESCURO
-  ## R: 239, G: 121, B: 91
-
-## lARANJA ESCURO
-  ## R: 192, G: 60, B: 39
-
-## VERDE CLARO
-  ## R: 101, G: 187, B: 88
-
-## VERDE FLUORESCENTE
-  ## R: 34, G: 206, B: 0
-
-## VERDE ESCURO
-  ## R: 35, G 85, B, 24
 version: 1.0.0+1
 
 environment:
@@ -44,6 +29,14 @@ dependencies:
   flutter_modular: ^5.0.3
   modular_test: ^2.0.0
   build_runner: ^2.3.3
+
+  firebase_auth: ^4.2.5
+  firebase_core: ^2.4.1
+  firebase_storage: ^11.0.10
+  cloud_firestore: ^4.3.1
+  mockito: ^5.3.2
+  validators2: ^3.0.0
+  mask_text_input_formatter: ^2.4.0
 
 
 dev_dependencies:
@@ -103,5 +96,6 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 scripts:
   mobx: flutter pub run build_runner watch --delete-conflicting-outputs --use-polling-watcher
+  reload: flutter clean cache && flutter pub get
   clean: flutter clean cache
   get: flutter pub get

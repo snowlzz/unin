@@ -12,7 +12,7 @@ scripts:
 
   get: flutter pub get
 
-  launch: flutter emulators --launch Pixel_2
+  launch: flutter emulators --launch Pixel_4
     
  
     
